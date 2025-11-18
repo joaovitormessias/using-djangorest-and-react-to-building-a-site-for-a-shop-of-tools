@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loja de Ferramentas</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  </head>
+  <body>
+    <header class="topo">
+      <div>
+        <h1>Oficina do Bairro</h1>
+        <p>Catalogo responsivo consumindo a propria API Django REST.</p>
+      </div>
+      <div class="status-autenticacao">
+        <p id="statusUsuario">Visitante navegando em modo leitura.</p>
+        <button id="botaoLogout" type="button" class="oculto">Sair</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="painel" aria-labelledby="sobreTitulo">
+        <h2 id="sobreTitulo">Visao geral do fluxo</h2>
+        <ol class="passos">
+          <li>Front envia requisicoes GET liberadas publicamente.</li>
+          <li>Login envia usuario e senha e recebe token de acesso.</li>
+          <li>Token fica salvo no navegador e habilita botoes extras.</li>
+          <li>Cada acao de escrita inclui Authorization: Token ...</li>
+          <li>A API responde com JSON e o front re renderiza a lista.</li>
+        </ol>
+      </section>
+
+      <section class="painel" aria-labelledby="loginTitulo">
+        <h2 id="loginTitulo">Entrar</h2>
+        <form id="loginForm">
+          <label>
+            Usuario
+            <input id="loginUsuario" name="username" required />
+          </label>
+          <label>
+            Senha
+            <input
+              id="loginSenha"
+              name="password"
+              required
+              type="password"
+            />
+          </label>
+          <button type="submit">Gerar token</button>
+        </form>
+        <p class="ajuda">
+          Use qualquer usuario do Django Admin. Apenas usuarios com permissoes
+          de add/change/delete conseguem editar registros.
+        </p>
+      </section>
+
+      <section class="painel" aria-labelledby="categoriasTitulo">
+        <h2 id="categoriasTitulo">Categorias de ferramentas</h2>
+        <ul id="listaCategorias" class="lista-categorias"></ul>
+      </section>
+
+      <section class="painel" aria-labelledby="crudTitulo">
+        <h2 id="crudTitulo">Cadastro de ferramentas</h2>
+        <form id="ferramentaForm" class="grid-form">
+          <input type="hidden" id="ferramentaId" />
+          <label>
+            Categoria
+            <select id="categoriaSelect" required></select>
+          </label>
+          <label>
+            Nome
+            <input id="ferramentaNome" required maxlength="120" />
+          </label>
+          <label>
+            Marca
+            <input id="ferramentaMarca" required maxlength="80" />
+          </label>
+          <label>
+            Preco
+            <input
+              id="ferramentaPreco"
+              required
+              type="number"
+              min="0"
+              step="0.01"
+            />
+          </label>
+          <label>
+            Em estoque
+            <input
+              id="ferramentaEstoque"
+              required
+              type="number"
+              min="0"
+              step="1"
+            />
+          </label>
+          <label class="linha">
+            Descricao
+            <textarea id="ferramentaDescricao" rows="3"></textarea>
+          </label>
+          <label class="linha checkbox">
+            <input type="checkbox" id="ferramentaPromocao" />
+            Ferramenta em promocao
+          </label>
+          <div class="botoes-form">
+            <button type="submit">Salvar ferramenta</button>
+            <button type="button" id="cancelarEdicao" class="secundario">
+              Limpar formulario
+            </button>
+          </div>
+        </form>
+        <p class="ajuda">
+          O formulario so fica ativo quando houver token valido. Sem login o
+          front exibe apenas a vitrine.
+        </p>
+      </section>
+
+      <section class="painel" aria-labelledby="listaTitulo">
+        <h2 id="listaTitulo">Vitrine atualizada</h2>
+        <div id="listaFerramentas" class="grade"></div>
+      </section>
+    </main>
+
+    <template id="ferramenta-card-template">
+      <article class="card">
+        <header>
+          <p class="categoria"></p>
+          <h3 class="nome"></h3>
+          <p class="marca"></p>
+          <p class="preco"></p>
+        </header>
+        <p class="descricao"></p>
+        <ul class="detalhes">
+          <li class="estoque"></li>
+          <li class="promocao"></li>
+          <li class="atualizado"></li>
+        </ul>
+        <div class="acoes">
+          <button type="button" class="editar">Editar</button>
+          <button type="button" class="remover">Remover</button>
+        </div>
+      </article>
+    </template>
+
+    <script src="{% static 'js/app.js' %}"></script>
+  </body>
+</html>

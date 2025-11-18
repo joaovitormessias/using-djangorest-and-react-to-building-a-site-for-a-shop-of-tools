@@ -6,9 +6,6 @@ __pycache__
 db.sqlite3
 media
 
-# IA 
-agents.md
-
 # Backup files # 
 *.bak 
 
@@ -139,3 +136,5 @@ GitHub.sublime-settings
 !.vscode/launch.json 
 !.vscode/extensions.json 
 .history
+
+*activity.md

@@ -1,0 +1,227 @@
+:root {
+  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacOS, sans-serif;
+  color: #101828;
+  background: #f5f7fb;
+  line-height: 1.5;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.topo {
+  background: #1b2a4a;
+  color: #fff;
+  padding: 2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.topo h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+main {
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.painel {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.1);
+}
+
+form {
+  display: grid;
+  gap: 1rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.95rem;
+  color: #344054;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+input,
+textarea,
+select {
+  border: 1px solid #d0d5dd;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: #fff;
+}
+
+button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.6rem 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: #2563eb;
+  color: #fff;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+button.secundario {
+  background: #fff;
+  border: 1px solid #d0d5dd;
+  color: #1b2a4a;
+}
+
+.status-autenticacao {
+  text-align: right;
+}
+
+.status-autenticacao p {
+  margin: 0 0 0.5rem;
+}
+
+.oculto {
+  display: none !important;
+}
+
+.lista-categorias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lista-categorias li {
+  border: 1px solid #e4e7ec;
+  border-radius: 2rem;
+  padding: 0.35rem 0.9rem;
+  background: #eff4ff;
+  font-size: 0.9rem;
+}
+
+.passos {
+  display: grid;
+  gap: 0.35rem;
+  padding-left: 1.25rem;
+}
+
+.grid-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.grid-form .linha {
+  grid-column: 1 / -1;
+}
+
+.grid-form .checkbox {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.botoes-form {
+  display: flex;
+  gap: 0.75rem;
+  grid-column: 1 / -1;
+}
+
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  border: 1px solid #e4e7ec;
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 260px;
+}
+
+.card header {
+  border-bottom: 1px solid #f2f4f7;
+  padding-bottom: 0.5rem;
+}
+
+.card h3 {
+  margin: 0.25rem 0;
+}
+
+.card .marca {
+  color: #475467;
+  font-size: 0.9rem;
+}
+
+.card .preco {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.card .detalhes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: #475467;
+  font-size: 0.9rem;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.card .acoes {
+  margin-top: auto;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.card .acoes button {
+  flex: 1;
+  padding: 0.4rem 0.5rem;
+}
+
+.ajuda {
+  font-size: 0.9rem;
+  color: #475467;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .topo {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .status-autenticacao {
+    text-align: center;
+  }
+}
